@@ -64,7 +64,7 @@ async def on_message(message):
         embed = discord.Embed(color=0xFF0000)
         embed.add_field(name="\u200b", value=f"+ 디스코드아이디: {user}\n+ 제재 사유 : {reason}\n+ 처리 사항 : 경고 {n}회\n+ 해제 날짜 : 영구\n+ 처리자 : {men}", inline=False)
         embed.set_author(name="HyunEc 제재")
-        await client.get_channel(693420511463604225).send(embed=embed)
+        await client.get_channel(820893060442357761).send(embed=embed)
 
     if message.content.startswith("/밴"):
         men = message.author
@@ -75,7 +75,7 @@ async def on_message(message):
         embed.add_field(name="\u200b", value=f"+ 디스코드아이디: {user}\n+ 제재 사유 : {reason}\n+ 처리 사항 : 밴\n+ 해제 날짜 : 영구\n+ 처리자 : {men}", inline=False)
         embed.set_author(name="HyunEc 제재")
     embed.set_footer(text=f"{member.mention}님이 작성하셨습니다.")
-        await client.get_channel(693420511463604225).send(embed=embed)
+        await client.get_channel(820893060442357761).send(embed=embed)
 
     if message.content == '/내정보':
         user = message.author
