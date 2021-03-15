@@ -10,7 +10,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print("봇이 성공적으로 실행되었습니다.")
-    game = discord.Streaming(name="BC ClaN 문의", url='https://www.twitch.tv/bc-clan')
+    game = discord.Streaming(name="HyunEc Bot, url='https://www.twitch.tv/bc-clan')
     await client.change_presence(status=discord.Status.online, activity=game)
 
 
@@ -50,7 +50,7 @@ async def on_message(message):
         value = message.content[8:]
         embed = discord.Embed(color=selcolor)
         embed.add_field(name="\u200b", value=value, inline=False)
-        embed.set_author(name="BC ClaN", icon_url=message.author.avatar_url)
+        embed.set_author(name="HyunEc Bot")
 
         await message.channel.send(embed=embed)
         await message.delete()
@@ -63,7 +63,7 @@ async def on_message(message):
         
         embed = discord.Embed(color=0xFF0000)
         embed.add_field(name="\u200b", value=f"+ 디스코드아이디: {user}\n+ 제재 사유 : {reason}\n+ 처리 사항 : 경고 {n}회\n+ 해제 날짜 : 영구\n+ 처리자 : {men}", inline=False)
-        embed.set_author(name="BC ClaN & TeaM [PUBG] 제재")
+        embed.set_author(name="HyunEc 제재")
         await client.get_channel(693420511463604225).send(embed=embed)
 
     if message.content.startswith("/밴"):
@@ -73,7 +73,8 @@ async def on_message(message):
         
         embed = discord.Embed(color=0xFF0000)
         embed.add_field(name="\u200b", value=f"+ 디스코드아이디: {user}\n+ 제재 사유 : {reason}\n+ 처리 사항 : 밴\n+ 해제 날짜 : 영구\n+ 처리자 : {men}", inline=False)
-        embed.set_author(name="BC ClaN & TeaM [PUBG] 제재")
+        embed.set_author(name="HyunEc 제재")
+    embed.set_footer(text=f"{member.mention}님이 작성하셨습니다.")
         await client.get_channel(693420511463604225).send(embed=embed)
 
     if message.content == '/내정보':
@@ -90,91 +91,16 @@ async def on_message(message):
         time.sleep(1)
         embed = discord.Embed(color=0x9932CC)
         embed.add_field(name="\u200b", value=f"{number}개의 메시지가 삭제되었습니다.", inline=False)
-        embed.set_author(name="BC ClaN 메시지 삭제")
+        embed.set_author(name="HyunEc 메시지 삭제")
 
         await message.channel.send(embed=embed)
         time.sleep(10)
-
-    if message.content.startswith("/공지등록"):
-        msg = message.content[6:]
-        embed = discord.Embed(color=0x9932CC)
-        embed.add_field(name="\u200b", value=msg, inline=False)
-        embed.set_author(name="BC ClaN & TeaM [PUBG] 공지사항")
-        embed.set_footer(text="공지사항 숙지 부탁드립니다.")
 
         await client.get_channel(703584991753273354).send(embed=embed)
 
     if message.content.startswith("/채널생성"):
         cc = message.content[5:]
         channel = await message.guild.create_text_channel(f"{message.author}")
-
-    if message.content.startswith("/클랜가입"):
-        embed = discord.Embed(color=0x9932CC)
-        embed.add_field(name="\u200b", value=f"클랜 가입을 하시려면 아래 설문지를 작성하셔야 합니다.", inline=False)
-        embed.set_author(name="BC ClaN & TeaM 가입 신청")
-        embed.set_footer(text="질문은 3초뒤에 나타납니다.")
-        await message.channel.send(embed=embed)
-        time.sleep(2)
-        embed = discord.Embed(color=0x9932CC)
-        embed.add_field(name="\u200b", value=f"```지원 플랫폼 [ KaKao / Steam ] : \n배그 닉네임 : \n디스코드이름#태그 : \n본인이 속해 있던 팀 또는 클랜 : \n인게임 닉변 여부 : \n짧은 각오 : ```", inline=False)
-        embed.set_author(name="BC ClaN & TeaM 가입하기")
-        time.sleep(10)
-        await message.channel.send(embed=embed)
-
-    if '지원 플랫폼 [ KaKao / Steam ] : KaKao' in message.content:
-        if message.channel.id == 815538292379353119:
-            member = message.author
-            embed = discord.Embed(color=0x9932CC)
-            embed.add_field(name="\u200b", value=f"클랜 가입 단계가 얼마 남지 않았어요!\nDiscord : https://discord.gg/ZwGAM8F /n KaKaoTalk : https://open.kakao.com/o/gThPJV9b 비밀번호 : BCCLAN\n접속 부탁드립니다.", inline=False)
-            embed.set_author(name="BC ClaN & TeaM 가입 신청 ")
-            embed.set_footer(text="아래 링크 접속 부탁드립니다.")
-            await message.channel.send(embed=embed)
-            guild = client.get_guild(693311983629369346)
-            role = guild.get_role(815190273898184714)
-            role2 = guild.get_role(705540156274507787)
-            await message.author.add_roles(role)
-            await message.author.remove_roles(role2)
-            await message.delete()
-
-    if '지원 플랫폼 [ KaKao / Steam ] : Steam' in message.content:
-        if message.channel.id == 815538292379353119:
-            member = message.author
-            embed = discord.Embed(color=0x9932CC)
-            embed.add_field(name="\u200b", value=f"클랜 가입 단계가 얼마 남지 않았어요!\nDiscord : https://discord.gg/ZwGAM8F/nKaKaoTalk : https://open.kakao.com/o/gThPJV9b 비밀번호 : BCCLAN\n접속 부탁드립니다.", inline=False)
-            embed.set_author(name="BC ClaN & TeaM 가입 신청 ")
-            embed.set_footer(text="아래 링크 접속 부탁드립니다.")
-            await message.channel.send(embed=embed)
-            guild = client.get_guild(693311983629369346)
-            role = guild.get_role(815190058825941004)
-            role2 = guild.get_role(705540156274507787)
-            await message.author.add_roles(role)
-            await message.author.remove_roles(role2)
-                
-    if '지원 플랫폼 [ KaKao / Steam ] : 둘다' in message.content:
-        if message.channel.id == 815538292379353119:
-            member = message.author
-            embed = discord.Embed(color=0x9932CC)
-            embed.add_field(name="\u200b", value=f"클랜 가입 단계가 얼마 남지 않았어요!\nDiscord : https://discord.gg/ZwGAM8F/nKaKaoTalk : https://open.kakao.com/o/gThPJV9b 비밀번호 : BCCLAN\n접속 부탁드립니다.", inline=False)
-            embed.set_author(name="BC ClaN & TeaM 가입 신청 ")
-            embed.set_footer(text="아래 링크 접속 부탁드립니다.")
-            await message.channel.send(embed=embed)
-            guild = client.get_guild(693311983629369346)
-            role = guild.get_role(815190058825941004)
-            role2 = guild.get_role(705540156274507787)
-            role3 = guild.get_role(815190273898184714)
-            await message.author.add_roles(role)
-            await message.author.add_roles(role3)
-            await message.author.remove_roles(role2)
-
-    if '지원 플랫폼 [ KaKao / Steam ]' in message.content:
-        if message.channel.id == 815538292379353119:
-            member = message.author
-            message = message.content[0:]
-            embed = discord.Embed(color=0x9932CC)
-            embed.add_field(name="\u200b", value=f"```{message}```\n{member.mention}", inline=False)
-            embed.set_author(name="BC ClaN & TeaM 가입 신청 ")
-            embed.set_footer(text=f"{member.mention}님이 작성하셨습니다.")
-            await client.get_channel(815949635625418762).send(embed=embed)
-       
+        
 access_token = os.environ['BOT_TOKEN']
 client.run(access_token)
