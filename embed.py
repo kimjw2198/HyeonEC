@@ -102,7 +102,7 @@ async def on_message(message):
         embed.set_author(name="혀니씨 공지사항")
         embed.set_footer(text="공지사항 숙지 부탁드립니다.")
 
-        await client.get_channel(791344686291877928).send(embed=embed)
+        await client.get_channel(809678985645785108).send(embed=embed)
 
     if message.content.startswith("/채널생성"):
         cc = message.content[5:]
