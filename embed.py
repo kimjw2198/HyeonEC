@@ -10,7 +10,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print("봇이 성공적으로 실행되었습니다.")
-    game = discord.Streaming(name="KPS BOT 실행중", url='https://www.twitch.tv/kpsscrim')
+    game = discord.Streaming(name="혀니씨봇 실행!", url='https://www.twitch.tv/kpsscrim')
     await client.change_presence(status=discord.Status.online, activity=game)
 
 
@@ -50,7 +50,7 @@ async def on_message(message):
         value = message.content[8:]
         embed = discord.Embed(color=selcolor)
         embed.add_field(name="\u200b", value=value, inline=False)
-        embed.set_author(name="KPS BOT")
+        embed.set_author(name="혀니씨")
 
         await message.channel.send(embed=embed)
         await message.delete()
@@ -63,8 +63,8 @@ async def on_message(message):
         
         embed = discord.Embed(color=0xFF0000)
         embed.add_field(name="\u200b", value=f"+ 디스코드아이디: {user}\n+ 제재 사유 : {reason}\n+ 처리 사항 : 경고 {n}회\n+ 해제 날짜 : 영구\n+ 처리자 : {men}", inline=False)
-        embed.set_author(name="KaKao PUBG SCRIM²⁰²¹ [KPS] 제재")
-        await client.get_channel(791370715500118086).send(embed=embed)
+        embed.set_author(name="혀니씨 제재")
+        await client.get_channel(820893060442357761).send(embed=embed)
 
     if message.content.startswith("/밴"):
         men = message.author
@@ -73,8 +73,8 @@ async def on_message(message):
         
         embed = discord.Embed(color=0xFF0000)
         embed.add_field(name="\u200b", value=f"+ 디스코드아이디: {user}\n+ 제재 사유 : {reason}\n+ 처리 사항 : 밴\n+ 해제 날짜 : 영구\n+ 처리자 : {men}", inline=False)
-        embed.set_author(name="KaKao PUBG SCRIM²⁰²¹ [KPS] 제재")
-        await client.get_channel(791370715500118086).send(embed=embed)
+        embed.set_author(name="혀니씨 제재")
+        await client.get_channel(820893060442357761).send(embed=embed)
 
     if message.content == '/내정보':
         user = message.author
@@ -90,7 +90,7 @@ async def on_message(message):
         time.sleep(1)
         embed = discord.Embed(color=0x9932CC)
         embed.add_field(name="\u200b", value=f"{number}개의 메시지가 삭제되었습니다.", inline=False)
-        embed.set_author(name="KaKao PUBG SCRIM²⁰²¹ [KPS] 메시지 삭제")
+        embed.set_author(name="혀니씨 메시지 삭제")
 
         await message.channel.send(embed=embed)
         time.sleep(10)
@@ -99,7 +99,7 @@ async def on_message(message):
         msg = message.content[6:]
         embed = discord.Embed(color=0x9932CC)
         embed.add_field(name="\u200b", value=msg, inline=False)
-        embed.set_author(name="KaKao PUBG SCRIM²⁰²¹ [KPS] 공지사항")
+        embed.set_author(name="혀니씨 공지사항")
         embed.set_footer(text="공지사항 숙지 부탁드립니다.")
 
         await client.get_channel(791344686291877928).send(embed=embed)
