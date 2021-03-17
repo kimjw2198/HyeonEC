@@ -46,6 +46,8 @@ async def on_message(message):
             selcolor = 0x828282
         if message.content[5:7] == '남색':
             selcolor = 0x3700FF
+        if message.content[5:7] == '핑크':
+            selcolor = 0xe6abee
 
         value = message.content[8:]
         embed = discord.Embed(color=selcolor)
